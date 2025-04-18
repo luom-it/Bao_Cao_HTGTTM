@@ -1,0 +1,41 @@
+#nav{
+  display: inline-block;
+  margin: 0;
+}
+#nav > li {
+      display: inline-block;
+}
+#nav li{
+  position: relative;
+}
+
+#nav .subnav li:hover a,
+#nav >li:hover> a{
+  color: #000;    
+  background-color: #ccc;
+  display: block;
+  opacity: 0.5;
+}
+#nav .subnav{
+  display: none; 
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#nav li:hover .subnav{
+  display: block;
+}
+
+#nav >li>a {
+  color: #fff;
+  text-transform: uppercase;
+}
+#nav li a {
+  text-decoration-line: none;
+  line-height: 60px;
+  padding: 0 24px;
+  display: inline-block;
+
+}

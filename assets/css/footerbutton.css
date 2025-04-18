@@ -1,0 +1,34 @@
+  /* button trở lại vị trí của bạn*/
+  #button-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+  
+  #marker-reset-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+  }
+  
+  #marker-reset-button:hover {
+    cursor: pointer;
+  }
+/* button tình trạng giao thông*/
+  #status-traffic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+  }
+  #status-traffic:hover {
+    cursor: pointer;
+  }

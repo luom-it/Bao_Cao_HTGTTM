@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My Map</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/footerbutton.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/headerbutton.css">
+  <link rel="stylesheet" href="./assets/font/fontawesome-free-6.3.0-web/css/all.css">
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+    type="text/css"
+  />
+  <!-- Load the `mapbox-gl-geocoder` plugin. -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div id="main">
+        </div>
+        <div id="map-section">
+            <!-- MAP -->
+        <div id="map">
+          <div id="button-container">
+          <button id="marker-reset-button" title="Trở về vị trí của bạn!"><i class="fa-solid fa-location-dot"></i></button>
+          <button id="status-traffic" title="Xem tình trạng giao thông"><i class="fa-solid fa-traffic-light"></i></button>
+        </div>
+      </div>
+      </div>
+      
+      <div id="timduong-section">
+          <!-- code của phần tìm đường của bạn -->
+      </div>
+      
+      <div id="contact-section">
+          <!-- code của phần liên hệ của bạn -->
+      </div>
+       
+        <script src="./assets/js/script.js"></script>
+        
+        <!-- HEADER -->
+        <script src="./assets/js/buttonheader.js"></script>
+        <div id="header">
+          <ul id="nav">
+            <li><a href="#" onclick="showMap()">Bản đồ</a></li>
+            <li><a href="#" onclick="showTimduong()">Tìm đường</a></li>
+            <!-- mới mở -->
+            <!-- <li><a href="#" onclick="showContact()" >Bus</a></li>
+            <li><a href="#">Liên hệ</a></li> -->
+<!--        
+   <form>
+          <label for="address-input">Nhập địa chỉ:</label>
+          <input type="text" id="address-input" name="address">
+          <button type="submit" id="submit-button">Tìm kiếm</button>
+        </form>
+      
+       <div id="output"></div> 
+      
+        <script>
+          const form = document.querySelector('form');
+          const addressInput = document.getElementById('address-input');
+          const output = document.getElementById('output');
+    
+          form.addEventListener('submit', event => {
+            event.preventDefault(); // Prevent form submission
+            const address = addressInput.value.trim(); // Get the address from the input field
+            if (!address) return; // Do nothing if no address is entered
+    
+            // Call Nominatim API to get the coordinates
+            fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&addressdetails=1&limit=1`)
+              .then(response => response.json())
+              .then(data => {
+                const { lat, lon } = data[0];
+                output.innerText = `Tọa độ của ${address} là: (${lon}, ${lat})`;
+              })
+              .catch(error => {
+                console.error(error);
+                output.innerText = `An error occurred while fetching the data`;
+              });
+          });
+        </script> 
+        
+        </ul>   
+    
+        </div>
+
+    </div>
+	
+</body>
+</html>

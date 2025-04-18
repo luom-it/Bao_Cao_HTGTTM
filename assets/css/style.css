@@ -1,0 +1,116 @@
+#map {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 0; /* Set the z-index to be lower than the other elements */
+}
+
+body {
+    background-color: rgb(237, 232, 225);
+}
+#header {
+  background-color: rgb(24, 49, 83);
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+nav {
+  width: 350px;
+  position: fixed;
+  top: 60px; /* height of the header */
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.text-box {
+  width: 200px;
+  margin: 10px;
+  background-color: #fff;
+}
+
+.top  {
+  order: 1;
+  width: 200px;
+}
+
+.bottom {
+  order: 2;
+  width: 200px;
+}
+
+
+nav input[type="text"] {
+  width: 300px; /* chiều rộng của text box */
+  height: 30px; /* chiều cao của text box */
+  margin: 0 10px; /* khoảng cách giữa hai text box */
+  border-radius: 8px;
+  border-width: 0.1px;
+}
+    #main {
+      margin-top: 60px; /* adjust this to match your header's height */
+      margin-left: 400px;
+      z-index: o;
+      position: relative;
+    }
+  /* button tìm đường
+  .button-find {
+    right: 0;
+    width: 100px;
+    height: 40px;
+    order: 3;
+    margin-left: 250px;
+    margin-left: 225px;
+    margin-top: 20px;
+
+  }
+  .button-find .my-button{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background-color: blue;
+    border-width: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  } */
+  
+  label[for="mapbox-directions-profile-driving"]::before {
+    content: "🚘";
+  }
+  label[for="mapbox-directions-profile-driving-traffic"]::before {
+    content: "🛵";
+  }
+  label[for="mapbox-directions-profile-walking"]::before {
+    content: "🚶‍♂️";
+  }
+
+  label[for="mapbox-directions-profile-cycling"]::before {
+    content: "🚲";
+  }
+  .mapboxgl-popup h3 {
+    font-size: 11px;
+    color: blue;
+    font-weight: 100;
+  }
+
+  .mapboxgl-marker:hover {
+    opacity: -0,5;
+    z-index: 1;
+  }
+  .mapbox-directions-inputs button {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
