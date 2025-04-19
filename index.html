@@ -39,60 +39,18 @@
       <div id="timduong-section">
           <!-- code của phần tìm đường của bạn -->
       </div>
-      
-      <div id="contact-section">
-          <!-- code của phần liên hệ của bạn -->
-      </div>
-       
+
         <script src="./assets/js/script.js"></script>
         
         <!-- HEADER -->
         <script src="./assets/js/buttonheader.js"></script>
         <div id="header">
           <ul id="nav">
-            <li><a href="#" onclick="showMap()">Bản đồ</a></li>
+            <li><a href="" onclick="showMap()">Bản đồ</a></li>
             <li><a href="#" onclick="showTimduong()">Tìm đường</a></li>
-            <!-- mới mở -->
-            <!-- <li><a href="#" onclick="showContact()" >Bus</a></li>
-            <li><a href="#">Liên hệ</a></li> -->
-<!--        
-   <form>
-          <label for="address-input">Nhập địa chỉ:</label>
-          <input type="text" id="address-input" name="address">
-          <button type="submit" id="submit-button">Tìm kiếm</button>
-        </form>
-      
-       <div id="output"></div> 
-      
-        <script>
-          const form = document.querySelector('form');
-          const addressInput = document.getElementById('address-input');
-          const output = document.getElementById('output');
-    
-          form.addEventListener('submit', event => {
-            event.preventDefault(); // Prevent form submission
-            const address = addressInput.value.trim(); // Get the address from the input field
-            if (!address) return; // Do nothing if no address is entered
-    
-            // Call Nominatim API to get the coordinates
-            fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&addressdetails=1&limit=1`)
-              .then(response => response.json())
-              .then(data => {
-                const { lat, lon } = data[0];
-                output.innerText = `Tọa độ của ${address} là: (${lon}, ${lat})`;
-              })
-              .catch(error => {
-                console.error(error);
-                output.innerText = `An error occurred while fetching the data`;
-              });
-          });
-        </script> -->
         
         </ul>   
-    
         </div>
-
     </div>
-	
 </body>
 </html>

@@ -5,7 +5,6 @@ var timduongSection = document.getElementById("timduong-section");
 function showMap() {
   mapSection.style.display = "block";
   timduongSection.style.display = "none";
-  contactSection.style.display = "none";
 }
 var isDirectionControlVisible = false;
 var directions = null;
@@ -40,11 +39,4 @@ function showTimduong() {
     isDirectionControlVisible = true;
   }
   timduongSection.style.display = "block";
-}
-
-// Hiển thị phần liên hệ
-function showContact() {
-  mapSection.style.display = "none";
-  timduongSection.style.display = "none";
-  contactSection.style.display = "block";
 }

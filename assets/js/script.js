@@ -3,7 +3,7 @@ mapboxgl.accessToken =
 
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/streets-v11", // Nếu lỗi, bạn có thể dùng 'streets-v11'
+  style: "mapbox://styles/mapbox/streets-v11",
   center: [0, 0],
   zoom: 13,
 });
@@ -36,14 +36,7 @@ geotext.style.padding = "10px 40px 10px 30px";
 var geowidth = document.querySelector(".mapboxgl-ctrl-geocoder");
 geowidth.style.minWidth = "280px";
 
-// // Lấy vị trí hiện tại của máy tính
-// navigator.geolocation.getCurrentPosition(function (position) {
-//   const currentLocation = [position.coords.longitude, position.coords.latitude];
-//   new mapboxgl.Marker().setLngLat(currentLocation).addTo(map);
-//   map.flyTo({ center: currentLocation, zoom: 14 });
-// });
-
-// ✅ Hàm lấy vị trí thông minh (ưu tiên GPS, fallback IP)
+// Hàm lấy vị trí thông minh (ưu tiên GPS, fallback IP)
 function getCurrentLocation(callback) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -72,7 +65,7 @@ function getCurrentLocation(callback) {
       },
       {
         enableHighAccuracy: true,
-        timeout: 10000,
+        timeout: 15000,
         maximumAge: 0,
       }
     );
@@ -221,15 +214,14 @@ backToMarkerButton.addEventListener("click", () => {
 // directions.setDestination(end);
 
 // Chức năng tìm đường giữa hai điểm
-// const searchButton = document.getElementById("search-button");
-// const directionsControls = document.querySelector(
-//   ".mapboxgl-control-container"
-// );
+const searchButton = document.getElementById("search-button");
+const directionsControls = document.querySelector(
+  ".mapboxgl-control-container"
+);
 
-// function showBuyTicket() {
-//   directionsControls.classList.add("open");
-// }
-// searchButton.addEventListener("click", showBuyTicket);
-// for (const searchButton of searchButton) {
-//   searchButton.addEventListener("click", showBuyTicket);
-// }
+function showBuyTicket() {
+  directionsControls.classList.add("open");
+}
+if (searchButton) {
+  searchButton.addEventListener("click", showBuyTicket);
+}

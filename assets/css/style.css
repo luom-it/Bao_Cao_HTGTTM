@@ -8,10 +8,10 @@
 }
 
 body {
-    background-color: rgb(237, 232, 225);
+  background-color: rgb(237, 232, 225);
 }
 #header {
-  background-color: rgb(24, 49, 83);
+  background-color: #37474f;
   height: 60px;
   position: fixed;
   top: 0;
@@ -38,7 +38,7 @@ nav {
   background-color: #fff;
 }
 
-.top  {
+.top {
   order: 1;
   width: 200px;
 }
@@ -48,7 +48,6 @@ nav {
   width: 200px;
 }
 
-
 nav input[type="text"] {
   width: 300px; /* chiều rộng của text box */
   height: 30px; /* chiều cao của text box */
@@ -56,13 +55,13 @@ nav input[type="text"] {
   border-radius: 8px;
   border-width: 0.1px;
 }
-    #main {
-      margin-top: 60px; /* adjust this to match your header's height */
-      margin-left: 400px;
-      z-index: o;
-      position: relative;
-    }
-  /* button tìm đường
+#main {
+  margin-top: 60px; /* adjust this to match your header's height */
+  margin-left: 400px;
+  z-index: 0;
+  position: relative;
+}
+/* button tìm đường
   .button-find {
     right: 0;
     width: 100px;
@@ -82,35 +81,35 @@ nav input[type="text"] {
     border-radius: 8px;
     cursor: pointer;
   } */
-  
-  label[for="mapbox-directions-profile-driving"]::before {
-    content: "🚘";
-  }
-  label[for="mapbox-directions-profile-driving-traffic"]::before {
-    content: "🛵";
-  }
-  label[for="mapbox-directions-profile-walking"]::before {
-    content: "🚶‍♂️";
-  }
 
-  label[for="mapbox-directions-profile-cycling"]::before {
-    content: "🚲";
-  }
-  .mapboxgl-popup h3 {
-    font-size: 11px;
-    color: blue;
-    font-weight: 100;
-  }
+label[for="mapbox-directions-profile-driving"]::before {
+  content: "🚘";
+}
+label[for="mapbox-directions-profile-driving-traffic"]::before {
+  content: "🛵";
+}
+label[for="mapbox-directions-profile-walking"]::before {
+  content: "🚶‍♂️";
+}
 
-  .mapboxgl-marker:hover {
-    opacity: -0,5;
-    z-index: 1;
-  }
-  .mapbox-directions-inputs button {
-    padding: 0;
-    margin: 0;
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    display: none;
+label[for="mapbox-directions-profile-cycling"]::before {
+  content: "🚲";
+}
+.mapboxgl-popup h3 {
+  font-size: 11px;
+  color: blue;
+  font-weight: 100;
+}
+
+.mapboxgl-marker:hover {
+  opacity: -0, 5;
+  z-index: 1;
+}
+.mapbox-directions-inputs button {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
 }
