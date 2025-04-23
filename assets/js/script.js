@@ -8,20 +8,21 @@ var map = new mapboxgl.Map({
   zoom: 13,
 });
 
-// Khởi tạo Geocoder
+// Khởi tạo Geocoder, thanh tiềm kiếm địa điểm
 var geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken,
   mapboxgl: mapboxgl,
-  marker: false,
+  marker: true,
   placeholder: "Tìm kiếm địa điểm",
   country: "vn",
   language: "vi",
   bbox: [102.144858, 8.499986, 109.468082, 23.393395],
-  autocomplete: false,
+  autocomplete: true,
 });
-
+//thêm thanh tìm kiếm vào góc phải
 map.addControl(geocoder, "top-right");
 
+//chấm đánh dấu trên bản đồ
 var marker = new mapboxgl.Marker({ color: "red" });
 geocoder.on("result", function (e) {
   const coordinates = e.result.center;
@@ -36,31 +37,31 @@ geotext.style.padding = "10px 40px 10px 30px";
 var geowidth = document.querySelector(".mapboxgl-ctrl-geocoder");
 geowidth.style.minWidth = "280px";
 
-// Hàm lấy vị trí thông minh (ưu tiên GPS, fallback IP)
+// Hàm lấy vị trí hien tai (ưu tiên GPS, fallback IP)
 function getCurrentLocation(callback) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
         const location = [position.coords.longitude, position.coords.latitude];
-        console.log("📍 Vị trí lấy từ GPS:", location);
+        console.log("Vị trí lấy từ GPS:", location);
         callback(location);
       },
       function (error) {
-        console.warn("⚠️ Không lấy được GPS, thử bằng IP:", error.message);
+        console.warn("Không lấy được GPS, thử bằng IP:", error.message);
         fetch("https://ipinfo.io/json?token=d2220ee89dee35")
           .then((res) => res.json())
           .then((data) => {
             const loc = data.loc.split(",");
             const location = [parseFloat(loc[1]), parseFloat(loc[0])];
             console.log(
-              "🌐 Vị trí lấy từ IP:",
+              "Vị trí lấy từ IP:",
               location,
               `(thành phố: ${data.city})`
             );
             callback(location);
           })
           .catch((err) => {
-            console.error("❌ Lỗi lấy vị trí qua IP:", err.message);
+            console.error("Lỗi lấy vị trí qua IP:", err.message);
           });
       },
       {
@@ -78,9 +79,9 @@ getCurrentLocation((location) => {
   map.flyTo({ center: location, zoom: 14 });
 });
 
-// Popup thời tiết và địa chỉ khi click
+// Popup thời tiết và địa chỉ khi dblclick
 var popups = [];
-map.on("click", function (e) {
+map.on("dblclick", function (e) {
   const OPEN_CAGE_API_KEY = "ebcf567d3fd5487fabdb09b5c0294c7c";
   const OPEN_WEATHER_API_KEY = "796f491edaa3a413905e99c999c7ccb2";
   const lat = e.lngLat.lat;
@@ -208,20 +209,3 @@ backToMarkerButton.addEventListener("click", () => {
     map.flyTo({ center: location, zoom: 14 });
   });
 });
-
-// // Tìm đường đi giữa hai điểm
-// directions.setOrigin(start);
-// directions.setDestination(end);
-
-// Chức năng tìm đường giữa hai điểm
-const searchButton = document.getElementById("search-button");
-const directionsControls = document.querySelector(
-  ".mapboxgl-control-container"
-);
-
-function showBuyTicket() {
-  directionsControls.classList.add("open");
-}
-if (searchButton) {
-  searchButton.addEventListener("click", showBuyTicket);
-}

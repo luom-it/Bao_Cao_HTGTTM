@@ -33,9 +33,6 @@ function showTimduong() {
     map.addControl(directions, "top-left");
     var directionsContainer = document.querySelector(".mapboxgl-ctrl-top-left");
     directionsContainer.style.top = "90px";
-    // var direciput = document.querySelector('.mapbox-directions-controls button.directions-icon-reverse');
-    // direciput.style.width ='260px';
-
     isDirectionControlVisible = true;
   }
   timduongSection.style.display = "block";
